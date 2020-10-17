@@ -6,6 +6,18 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
+    children: [
+
+      {
+        path: 'sobre',
+        loadChildren: () => import('./sobre/sobre.module').then(m => m.SobrePageModule)
+      },
+      {
+        path: 'forum',
+        loadChildren: () => import('./forum/forum.module').then(m => m.ForumPageModule)
+      }
+
+    ]
   }
 ];
 
@@ -13,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomePageRoutingModule {}
+export class HomePageRoutingModule { }
