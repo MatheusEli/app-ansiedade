@@ -9,20 +9,24 @@
 
 <ion-content color="secondary">
   <div class="cloud-background">
-    <div class="div_cadastro">
+    <form (ngSubmit)="mostra()"class="div_cadastro">
+      <ion-item class="input_cadastro">
+        <ion-label>Nome:</ion-label>
+        <ion-input type="text" [(ngModel)]="user.nome" name="nome" placeholder="Digite seu nome..."></ion-input>
+      </ion-item>
+      <ion-item class="input_cadastro">
+        <ion-label>Celular:</ion-label>
+        <ion-input type="number" [(ngModel)]="user.celular" name="celular" placeholder="Digite seu celular..."></ion-input>
+      </ion-item>
       <ion-item class="input_cadastro">
         <ion-label>E-mail:</ion-label>
-        <ion-input autofocus="true" placeholder="Digite seu e-mail..."></ion-input>
+        <ion-input type="text" [(ngModel)]="user.email" name="email" placeholder="Digite seu e-mail..."></ion-input>
       </ion-item>
-
       <ion-item class="input_cadastro">
         <ion-label>Senha:</ion-label>
-        <ion-input placeholder="Digite sua senha..."></ion-input>
+        <ion-input type = "password" [(ngModel)]="user.senha" name="senha" placeholder="Digite sua senha..."></ion-input>
       </ion-item>
-
-      <div class="div_botao">
-        <ion-button class="botão-cadastrar">Cadastrar</ion-button>
-      </div>
-    </div>
+      <ion-button type="submit"  class="div_botao" routerLink = "/login">Cadastrar</ion-button>
+    </form>
   </div>
 </ion-content>

@@ -13,7 +13,13 @@ export class CadastroPage implements OnInit {
   }
 
   public user = {
+    nome:"",
+    celular:"",
     email: "",
     senha: ""
+  }
+
+  mostra(){
+    console.log(this.user);
   }
 }
