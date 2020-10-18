@@ -12,4 +12,8 @@ export class CadastroPage implements OnInit {
   ngOnInit() {
   }
 
+  public user = {
+    email: "",
+    senha: ""
+  }
 }

@@ -15,6 +15,10 @@ const routes: Routes = [
       {
         path: 'forum',
         loadChildren: () => import('./forum/forum.module').then(m => m.ForumPageModule)
+      },
+      {
+        path: '',
+        loadChildren: () => import('./forum/forum.module').then(m => m.ForumPageModule)
       }
 
     ]

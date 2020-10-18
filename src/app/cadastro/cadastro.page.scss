@@ -7,3 +7,23 @@
     background-size: cover;
     padding-top: 3em;
 }
+
+.div_cadastro{
+    width:70%;
+    margin: auto;
+    margin-top: 40%;
+  }
+  
+  .input_cadastro{
+    border-style: solid ;
+    border-color:var(--ion-color-primary) ;
+    border-width: 1px;
+    border-radius: 20px;
+    margin-top: 8px;
+  }
+  
+  .div_botao{
+    margin: auto;
+    width: 125px;
+    margin-top: 12px;
+  }

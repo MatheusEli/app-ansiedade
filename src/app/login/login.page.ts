@@ -12,4 +12,13 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+
+  public user = {
+    email: "",
+    senha: ""
+  }
+
+  mostra(){
+    console.log(this.user);
+  }
 }
