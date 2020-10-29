@@ -1,6 +1,6 @@
-<ion-header class = "ion-no-margin">
+<ion-header class="ion-no-margin">
   <ion-toolbar color="tertiary">
-    <ion-buttons slot = "start">
+    <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title text-center>Login</ion-title>
@@ -9,16 +9,18 @@
 
 <ion-content color="secondary">
   <div class="cloud-background">
-    <form (ngSubmit)="mostra()"class="div_login">
+    <form (ngSubmit)="mostra()" class="div_login">
       <ion-item class="input_login">
         <ion-label>E-mail:</ion-label>
         <ion-input type="text" [(ngModel)]="user.email" name="email" placeholder="Digite seu e-mail..."></ion-input>
       </ion-item>
       <ion-item class="input_login">
         <ion-label>Senha:</ion-label>
-        <ion-input type = "password" [(ngModel)]="user.senha" name="senha" placeholder="Digite sua senha..."></ion-input>
+        <ion-input type="password" [(ngModel)]="user.senha" name="senha" placeholder="Digite sua senha..."></ion-input>
       </ion-item>
-      <ion-button type="submit"  class="div_botao" routerLink = "/home">Entrar</ion-button>
+      <ion-button type="submit" class="div_botao" routerLink="/home">Entrar</ion-button>
     </form>
   </div>
+
+
 </ion-content>

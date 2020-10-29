@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import * as firebase from 'firebase';
+import { Observable } from 'rxjs';
+import { Usuario } from '../usuario/usuario';
+import { UsuarioDataService } from '../usuario/usuario-data.service';
+import { UsuarioService } from '../usuario/usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +12,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  usuarios: Observable<any>;
+  constructor(private usuarioService: UsuarioService, private usuarioDataService: UsuarioDataService) { }
 
   ngOnInit() {
+    this.usuarios = this.usuarioService.getAll();
   }
 
 
@@ -18,7 +25,7 @@ export class LoginPage implements OnInit {
     senha: ""
   }
 
-  mostra(){
-    console.log(this.user);
+  mostra() {
+
   }
 }
