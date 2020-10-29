@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../usuario/usuario';
+import { UsuarioService } from '../usuario/usuario.service';
+import { UsuarioDataService } from '../usuario/usuario-data.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -7,19 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroPage implements OnInit {
 
-  constructor() { }
+  usuario: Usuario
+  key:string = "";
+
+  constructor( private usuarioService: UsuarioService, private usuarioDataService: UsuarioDataService) { }
 
   ngOnInit() {
-  }
 
-  public user = {
-    nome:"",
-    celular:"",
-    email: "",
-    senha: ""
+    this.usuario = new Usuario();
   }
 
   mostra(){
-    console.log(this.user);
+    if(this.key){
+
+    }else{
+      this.usuarioService.insert(this.usuario);
+    }
+
+    this.usuario = new Usuario();
   }
 }
