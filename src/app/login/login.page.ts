@@ -12,12 +12,12 @@ import { UsuarioService } from '../usuario/usuario.service';
 })
 export class LoginPage implements OnInit {
 
-  listaUsuarios : Usuario[] = new Array();
+  listaUsuarios: Usuario[] = new Array();
   usuarioListSubscription: Subscription;
   constructor(private usuarioService: UsuarioService, private usuarioDataService: UsuarioDataService) { }
 
   ngOnInit() {
-    
+
   }
 
 
@@ -26,19 +26,21 @@ export class LoginPage implements OnInit {
     senha: ""
   }
 
-  mostra() {
+  async mostra() {
 
-    this.usuarioListSubscription = this.usuarioService.getAll().subscribe(notes => 
-      { this.listaUsuarios = notes});
-
-      var verificaUsuario = false;
-      this.listaUsuarios.forEach(element => {
-        if(this.user.email == element.email && this.user.senha == element.senha){
-        console.log("USUÁRIO EXISTENTE");
-        verificaUsuario = true;
-        }
-      });
+    this.listaUsuarios = await this.usuarioService.getAll().then(response => response);
 
     
+    console.log(this.listaUsuarios);
+
+    var verificaUsuario = false;
+    this.listaUsuarios.forEach(element => {
+      if (this.user.email == element.email && this.user.senha == element.senha) {
+        console.log("USUÁRIO EXISTENTE");
+        verificaUsuario = true;
+      }
+    });
+
+
   }
 }
