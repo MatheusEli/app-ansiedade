@@ -19,7 +19,11 @@ export class UsuarioService {
   }
   getAll(){
     return this.db.list('usuario').snapshotChanges().pipe(map(changes => {
-      return changes.map(a => ({key: a.payload.key, ...a.payload.val() as {}}));
+      return changes.map(a => ({nome: a.payload.key,
+        celular: a.payload.key,
+        email: a.payload.key,
+        senha: a.payload.key,
+         ...a.payload.val() as {}}));
     }))
   }
   delete(key:string){

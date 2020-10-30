@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
+import { Subscription } from 'rxjs/internal/Subscription';
 import { Usuario } from '../usuario/usuario';
 import { UsuarioDataService } from '../usuario/usuario-data.service';
 import { UsuarioService } from '../usuario/usuario.service';
@@ -12,11 +12,12 @@ import { UsuarioService } from '../usuario/usuario.service';
 })
 export class LoginPage implements OnInit {
 
-  usuarios: Observable<any>;
+  listaUsuarios : Usuario[] = new Array();
+  usuarioListSubscription: Subscription;
   constructor(private usuarioService: UsuarioService, private usuarioDataService: UsuarioDataService) { }
 
   ngOnInit() {
-    this.usuarios = this.usuarioService.getAll();
+    
   }
 
 
@@ -27,5 +28,17 @@ export class LoginPage implements OnInit {
 
   mostra() {
 
+    this.usuarioListSubscription = this.usuarioService.getAll().subscribe(notes => 
+      { this.listaUsuarios = notes});
+
+      var verificaUsuario = false;
+      this.listaUsuarios.forEach(element => {
+        if(this.user.email == element.email && this.user.senha == element.senha){
+        console.log("USUÁRIO EXISTENTE");
+        verificaUsuario = true;
+        }
+      });
+
+    
   }
 }
