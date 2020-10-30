@@ -28,16 +28,14 @@ export class LoginPage implements OnInit {
 
   async mostra() {
 
-    this.listaUsuarios = await this.usuarioService.getAll().then(response => response);
+    this.listaUsuarios = await this.usuarioService.getAll();
 
     
-    console.log(this.listaUsuarios);
 
     var verificaUsuario = false;
     this.listaUsuarios.forEach(element => {
       if (this.user.email == element.email && this.user.senha == element.senha) {
         console.log("USUÁRIO EXISTENTE");
-        verificaUsuario = true;
       }
     });
 
