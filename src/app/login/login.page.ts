@@ -30,9 +30,6 @@ export class LoginPage implements OnInit {
 
     this.listaUsuarios = await this.usuarioService.getAll();
 
-    
-
-    var verificaUsuario = false;
     this.listaUsuarios.forEach(element => {
       if (this.user.email == element.email && this.user.senha == element.senha) {
         console.log("USUÁRIO EXISTENTE");

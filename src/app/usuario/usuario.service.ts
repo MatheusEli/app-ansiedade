@@ -24,7 +24,7 @@ export class UsuarioService {
         email: a.payload.key,
         senha: a.payload.key,
          ...a.payload.val() as {}}));
-    })).toPromise();
+    })).toPromise()
   }
   delete(key:string){
     this.db.object(`usuario/${key}`).remove();
