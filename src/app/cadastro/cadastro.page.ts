@@ -1,32 +1,68 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../usuario/usuario';
-import { UsuarioService } from '../usuario/usuario.service';
-import { UsuarioDataService } from '../usuario/usuario-data.service';
+import {AuthService} from '../services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.page.html',
-  styleUrls: ['./cadastro.page.scss'],
+  styleUrls: ['./cadastro.page.scss']
 })
 export class CadastroPage implements OnInit {
 
-  usuario: Usuario
-  key:string = "";
+  email="";
+  password="";
+  message = '';
+  errorMessage = ''; // validation error handle
+  error: { name: string, message: string } = { name: '', message: '' }; // for firbase error handle
 
-  constructor( private usuarioService: UsuarioService, private usuarioDataService: UsuarioDataService) { }
+  constructor(private authservice: AuthService, private router:Router) { }
 
-  ngOnInit() {
-
-    this.usuario = new Usuario();
+  ngOnInit(): void {
   }
 
-  mostra(){
-    if(this.key){
+  clearErrorMessage()
+  {
+    this.errorMessage = '';
+    this.error = {name : '' , message:''};
+  }
 
-    }else{
-      this.usuarioService.insert(this.usuario);
+  register()
+  {
+    this.clearErrorMessage();
+    if (this.validateForm(this.email, this.password)) {
+      this.authservice.registerWithEmail(this.email, this.password)
+        .then(() => {
+          this.message = "you are register with data on firbase"
+          //this.router.navigate(['/userinfo'])
+        }).catch(_error => {
+          this.error = _error
+          this.router.navigate(['/cadastro'])
+        })
+    }
+  }
+
+  validateForm(email:string, password:string)
+  {
+    if(email.length === 0)
+    {
+      this.errorMessage = "please enter email id";
+      return false;
     }
 
-    this.usuario = new Usuario();
+    if (password.length === 0) {
+      this.errorMessage = "please enter password";
+      return false;
+    }
+
+    if (password.length < 6)
+    {
+      this.errorMessage = "password should be at least 6 char";
+      return false;
+    }
+
+    this.errorMessage = '';
+    return true;
+
   }
+
 }

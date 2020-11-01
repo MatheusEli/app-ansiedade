@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Subscription } from 'rxjs/internal/Subscription';
-import { Usuario } from '../usuario/usuario';
-import { UsuarioDataService } from '../usuario/usuario-data.service';
-import { UsuarioService } from '../usuario/usuario.service';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,30 +9,54 @@ import { UsuarioService } from '../usuario/usuario.service';
 })
 export class LoginPage implements OnInit {
 
-  listaUsuarios: Usuario[] = new Array();
-  usuarioListSubscription: Subscription;
-  constructor(private usuarioService: UsuarioService, private usuarioDataService: UsuarioDataService) { }
+  email = "";
+  password = "";
+  errorMessage = ''; // validation error handle
+  error: { name: string, message: string } = { name: '', message: '' }; // for firbase error handle
 
-  ngOnInit() {
+  constructor(private authservice: AuthService, private router: Router) { }
+
+  ngOnInit(): void {
+  }
+
+  clearErrorMessage() {
+    this.errorMessage = '';
+    this.error = { name: '', message: '' };
+  }
+
+  login()
+  {
+    this.clearErrorMessage();
+    if (this.validateForm(this.email, this.password)) {
+      this.authservice.loginWithEmail(this.email, this.password)
+        .then(() => {
+         this.router.navigate(['/home'])
+        }).catch(_error => {
+          this.error = _error
+          this.router.navigate(['/login'])
+        })
+    }
+  }
+
+  validateForm(email:string, password:string) {
+    if (email.length === 0) {
+      this.errorMessage = "please enter email id";
+      return false;
+    }
+
+    if (password.length === 0) {
+      this.errorMessage = "please enter password";
+      return false;
+    }
+
+    if (password.length < 6) {
+      this.errorMessage = "password should be at least 6 char";
+      return false;
+    }
+
+    this.errorMessage = '';
+    return true;
 
   }
 
-
-  public user = {
-    email: "",
-    senha: ""
-  }
-
-  async mostra() {
-
-    this.listaUsuarios = await this.usuarioService.getAll();
-
-    this.listaUsuarios.forEach(element => {
-      if (this.user.email == element.email && this.user.senha == element.senha) {
-        console.log("USUÁRIO EXISTENTE");
-      }
-    });
-
-
-  }
 }

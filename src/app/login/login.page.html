@@ -9,18 +9,27 @@
 
 <ion-content color="secondary">
   <div class="cloud-background">
-    <form (ngSubmit)="mostra()" class="div_login">
+    <form (ngSubmit)="login()" class="div_login">
       <ion-item class="input_login">
         <ion-label>E-mail:</ion-label>
-        <ion-input type="text" [(ngModel)]="user.email" name="email" placeholder="Digite seu e-mail..."></ion-input>
+        <ion-input type="text" [(ngModel)]="email" name="email" placeholder="Digite seu e-mail..."></ion-input>
       </ion-item>
       <ion-item class="input_login">
         <ion-label>Senha:</ion-label>
-        <ion-input type="password" [(ngModel)]="user.senha" name="senha" placeholder="Digite sua senha..."></ion-input>
+        <ion-input type="password" [(ngModel)]="password" name="senha" placeholder="Digite sua senha..."></ion-input>
       </ion-item>
       <ion-button type="submit" class="div_botao">Entrar</ion-button>
+      <ion-button class="div_botao" routerLink = "/cadastro">Cadastre-se</ion-button>
+
     </form>
+    <div class="form-group">
+      <p *ngIf="errorMessage.length > 0" class="text-danger">
+          {{errorMessage}}</p>
+  
+      <p *ngIf="error.message.length > 0" class="text-danger">
+          {{error.message}} </p>
+  
+     
   </div>
-
-
+  </div>
 </ion-content>

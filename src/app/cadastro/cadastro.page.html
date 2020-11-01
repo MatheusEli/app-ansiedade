@@ -9,24 +9,28 @@
 
 <ion-content color="secondary">
   <div class="cloud-background">
-    <form (ngSubmit)="mostra()"class="div_cadastro">
-      <ion-item class="input_cadastro">
-        <ion-label>Nome:</ion-label>
-        <ion-input type="text" [(ngModel)]="usuario.nome" name="nome" placeholder="Digite seu nome..."></ion-input>
-      </ion-item>
-      <ion-item class="input_cadastro">
-        <ion-label>Celular:</ion-label>
-        <ion-input type="number" [(ngModel)]="usuario.celular" name="celular" placeholder="Digite seu celular..."></ion-input>
-      </ion-item>
+    <form (ngSubmit)="register()"class="div_cadastro">
       <ion-item class="input_cadastro">
         <ion-label>E-mail:</ion-label>
-        <ion-input type="text" [(ngModel)]="usuario.email" name="email" placeholder="Digite seu e-mail..."></ion-input>
+        <ion-input type="text" [(ngModel)]="email" name="email" placeholder="Digite seu e-mail..."></ion-input>
       </ion-item>
       <ion-item class="input_cadastro">
         <ion-label>Senha:</ion-label>
-        <ion-input type = "password" [(ngModel)]="usuario.senha" name="senha" placeholder="Digite sua senha..."></ion-input>
+        <ion-input type = "password" [(ngModel)]="password" name="senha" placeholder="Digite sua senha..."></ion-input>
       </ion-item>
-      <ion-button type="submit"  class="div_botao" routerLink = "/login">Cadastrar</ion-button>
+      <ion-button type="submit"  class="div_botao">Cadastrar-se</ion-button>
+      <ion-button class="div_botao" routerLink = "/login">Login</ion-button>
     </form>
+
+    <ion-text color = "dark">
+      <p *ngIf="errorMessage.length > 0">
+          {{errorMessage}}</p>
+      
+      <p *ngIf="error.message.length > 0">
+          {{error.message}} </p>
+
+          <p *ngIf="message.length > 0">
+              {{message}} </p>
+    </ion-text>
   </div>
 </ion-content>
