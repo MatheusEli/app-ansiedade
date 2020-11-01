@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Usuario } from './usuario';
-import { map } from 'rxjs/operators';
+import { first,map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -18,7 +18,7 @@ export class UsuarioService {
     this.db.list('usuario').update(key,usuario).catch((error:any) => {console.log(error)});
   }
   getAll(){
-    return this.db.list('usuario').snapshotChanges().pipe(map(changes => {
+    return this.db.list('usuario').snapshotChanges().pipe(first(),map(changes => {
       return changes.map(a => ({nome: a.payload.key,
         celular: a.payload.key,
         email: a.payload.key,
