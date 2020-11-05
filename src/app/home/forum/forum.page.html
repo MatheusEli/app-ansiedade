@@ -6,12 +6,10 @@
     </strong>
   </h1>
 
-  <form (ngSubmit)="logForm()">
+  <form>
     <ion-item class = "ion-margin-top ion-align-items-center">
       <ion-icon name="chatbox-outline" slot="start"></ion-icon>
-      <ion-textarea
-      [(ngModel)] = "post.conteudo" 
-      placeholder="Compartilhe sua história!" name = "conteudo"></ion-textarea>
+      <ion-textarea placeholder="Compartilhe sua história!" name = "conteudo"></ion-textarea>
       <ion-button type="submit" block><ion-icon name="arrow-forward"></ion-icon></ion-button>
     </ion-item>
   </form>
