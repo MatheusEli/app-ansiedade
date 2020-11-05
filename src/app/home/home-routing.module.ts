@@ -19,10 +19,16 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () => import('./forum/forum.module').then(m => m.ForumPageModule)
+      },
+      {
+        path: 'perfil',
+        loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
       }
 
     ]
-  }
+  },
+
+
 ];
 
 @NgModule({
