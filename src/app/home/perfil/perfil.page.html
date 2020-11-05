@@ -4,7 +4,27 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content>
+
+  <div id="top-div">  
+    <ion-avatar id="perfil-avatar">
+      <img src="https://randomuser.me/api/portraits/lego/0.jpg">
+    </ion-avatar>
+
+    <ion-fab color="primary" vertical="top" horizontal="center" slot="fixed">
+      <ion-fab-button>
+        <ion-icon name="pencil-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>   
+</div>
+
+<div id="bottom-div">
+<div class="user-data">Nome de Usuário:</div>
+<div class="user-data">E-mail:</div>
+<div class="user-data">Idade:</div>
+<div class="user-data">Sexo:</div>
+</div> 
+
 </ion-content>
   <ion-item class="ion-padding">
     <ion-button class="logout" fill="solid" routerLink="/login" color="vermelho"> Sair da Conta
