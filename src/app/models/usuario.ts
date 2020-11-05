@@ -8,4 +8,5 @@ export class Usuario extends Model {
     email:string;
     sexo:string;
     posts:ListaPosts;
+    imagem:string;
 }

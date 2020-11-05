@@ -6,11 +6,15 @@
     </strong>
   </h1>
 
-  <ion-item>
-    <ion-icon name="chatbox-outline" slot="start"></ion-icon>
-    <ion-input placeholder="search post"></ion-input>
-    <ion-icon name="arrow-forward" slot="end"></ion-icon>
-  </ion-item>
+  <form (ngSubmit)="logForm()">
+    <ion-item class = "ion-margin-top ion-align-items-center">
+      <ion-icon name="chatbox-outline" slot="start"></ion-icon>
+      <ion-textarea
+      [(ngModel)] = "post.conteudo" 
+      placeholder="Compartilhe sua história!" name = "conteudo"></ion-textarea>
+      <ion-button type="submit" block><ion-icon name="arrow-forward"></ion-icon></ion-button>
+    </ion-item>
+  </form>
 
 
   <ion-row class="ion-align-items-center  ion-margin--top">
