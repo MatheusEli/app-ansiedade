@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {Router} from '@angular/router';
 import { auth } from 'firebase';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,16 @@ import { auth } from 'firebase';
 export class AuthService {
 
   authState: any = null;
-
+  private user: Observable<firebase.User>;
+  
   constructor(private afu: AngularFireAuth, private router: Router) { 
     this.afu.authState.subscribe((auth =>{
       this.authState = auth;
     }))
+  }
+
+  authUser(): Observable<firebase.User> {
+    return this.user;
   }
 
   // all firebase getdata functions

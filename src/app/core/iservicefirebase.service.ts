@@ -1,6 +1,7 @@
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { plainToClass } from 'class-transformer';
 import { Observable } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import { ICrud } from './icrud.interface';
 import { Model } from './model';
 

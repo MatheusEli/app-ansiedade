@@ -1,6 +1,7 @@
+import { Model } from '../core/model';
 import { Post } from './post';
 
-export class ListaPosts {
+export class ListaPosts extends Model{
     posts:Array<Post>;
 
     public adiciona(post:Post){
