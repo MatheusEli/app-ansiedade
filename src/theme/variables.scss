@@ -74,7 +74,16 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /* vermelho-color(zhou) */
+  --ion-color-vermelho: #e60f0f;
+  --ion-color-vermelho-rgb: 230,15,15;
+  --ion-color-vermelho-contrast: #ffffff;
+  --ion-color-vermelho-contrast-rgb: 255,255,255;
+  --ion-color-vermelho-shade: #ca0d0d;
+  --ion-color-vermelho-tint: #e92727;
 }
+
 
 @media (prefers-color-scheme: dark) {
   /*

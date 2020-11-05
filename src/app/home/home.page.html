@@ -4,6 +4,7 @@
     <ion-buttons slot="start">
       <ion-menu-button menu="menuApp"></ion-menu-button>
     </ion-buttons>
+    <ion-label>A-Care</ion-label>
   </ion-toolbar>
 </ion-header>
 
@@ -14,11 +15,17 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
+  <ion-item button routerLink="/home/perfil">
+    <ion-label>Perfil</ion-label>
+  </ion-item>
     <ion-item button routerLink="/home/forum">
       <ion-label>Fórum</ion-label>
     </ion-item>
     <ion-item button routerLink="/home/sobre">
       <ion-label>Sobre o App</ion-label>
+    </ion-item>
+    <ion-item button routerLink="/login">
+      <ion-label>Sair do App <ion-icon name="log-out-outline"></ion-icon></ion-label>
     </ion-item>
   </ion-content>
 </ion-menu>
