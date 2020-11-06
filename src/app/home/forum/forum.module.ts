@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ForumPageRoutingModule } from './forum-routing.module';
 
 import { ForumPage } from './forum.page';
+import {NgPipesModule} from 'ngx-pipes';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { ForumPage } from './forum.page';
     FormsModule,
     IonicModule,
     ForumPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgPipesModule
   ],
   declarations: [ForumPage]
 })

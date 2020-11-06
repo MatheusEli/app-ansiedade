@@ -2,7 +2,7 @@ import { Model } from '../core/model';
 import { Usuario } from './usuario';
 
 export class Post extends Model{
-    proprietario:Usuario;
+    proprietario:string;
     dataPostagem:Date;
     conteudo:string;
     imagem:string

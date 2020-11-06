@@ -2,6 +2,8 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { plainToClass } from 'class-transformer';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { Post } from '../models/post';
+import { PostService } from '../services/post.service';
 import { ICrud } from './icrud.interface';
 import { Model } from './model';
 
@@ -30,7 +32,7 @@ export abstract class ServiceFirebase<T extends Model> implements ICrud<T>{
     }
 
     list(): Observable<T[]> {
-        return this.ref.valueChanges()
+        return this.ref.valueChanges();
     }
 
     createOrUpdate(item: T): Promise<any> {

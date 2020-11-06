@@ -16,7 +16,6 @@ export class PerfilPage implements OnInit {
   constructor(private authServ: AuthService, private router: Router) { }
 
   ngOnInit() {
-    this.user = this.authServ.authUser();
     this.email = this.authServ.currentUserName;
   }
 

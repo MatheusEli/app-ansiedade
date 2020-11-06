@@ -17,8 +17,8 @@ export class AuthService {
     }))
   }
 
-  authUser():string {
-    return this.authState['email'];
+  authUser(): Observable<firebase.User> {
+    return this.user;
   }
 
   // all firebase getdata functions

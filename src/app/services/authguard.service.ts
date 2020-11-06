@@ -15,7 +15,7 @@ export class AuthguardService implements CanActivate {
 
     return this.afAuth.authState.pipe(
       take(1),
-      map(user => !!user),
+      map(user => !!user), 
       tap(loggedIn => {
         if (!loggedIn) {
           this.router.navigate(['/login']);

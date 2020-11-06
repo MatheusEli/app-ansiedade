@@ -29,28 +29,20 @@
 
   </ion-row>
 
-  <ion-card class = "ion-margin-bottom">
-    <img class = "imagem-card" src="https://images.pexels.com/photos/97906/pexels-photo-97906.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""> 
-    
-    <ion-card-subtitle class ="ion-padding"> Segundo Dados da OMS o Brasil é o segundo País mais Ansioso sendo 9.3% da População.</ion-card-subtitle>
-
-  </ion-card>
-
-
-  <ion-card class = "ion-margin-bottom">
+  <ion-card *ngFor = "let post of posts$ | async" class = "ion-margin-bottom">
     <ion-card-header>
       <ion-grid>
 
         <ion-row class="ion-align-items-center">
           <ion-col size="auto">
           <ion-avatar>
-            <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="foto do usuario maria">
+            <img src="{{post.imagem}}" alt="foto do usuario maria">
           </ion-avatar>
           <ion-icon name="add"></ion-icon>
         </ion-col>
 
           <ion-col>
-            <ion-card-title> Maria Rosa Russo</ion-card-title>
+            <ion-card-title> {{post.proprietario}}</ion-card-title>
             <ion-card-subtitle> Especialista em tratamento de Ansiedade </ion-card-subtitle>
           </ion-col>
 
@@ -63,43 +55,29 @@
     </ion-card-header>
 
     <ion-card-content>
-      Musicoterapia para tratamento de Ansiedade comprovado e recomendado a todos, vamos ouvir uma boa musica e
-      relaxar!!!.
+      {{post.conteudo}}
     </ion-card-content>
 
   </ion-card>
 
+  <ion-row class="ion-align-items-center  ion-margin--top">
+
+    <ion-col size="auto">
+      <h2><strong>Notícias</strong> </h2>
+    </ion-col>
+
+    <ion-col class="ion-text-right">
+      <ion-text color="medium">
+        Mais
+      </ion-text>
+    </ion-col>
+
+  </ion-row>
+
   <ion-card class = "ion-margin-bottom">
-    <ion-card-header>
-      <ion-grid>
-
-        <ion-row class="ion-align-items-center">
-          <ion-col size="auto">
-            <ion-avatar>
-              <img
-                src="data:image/jpeg;base64,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"
-                alt="foto do usuario Arthur">
-            </ion-avatar>
-            <ion-icon name="add"></ion-icon>
-          </ion-col>
-
-          <ion-col>
-            <ion-card-title> Arthur Moledo do Val </ion-card-title>
-            <ion-card-subtitle> Politico </ion-card-subtitle>
-          </ion-col>
-
-        </ion-row>
-      </ion-grid>
-
-      <ion-badge>Novo! </ion-badge>
-      <ion-badge class="ion-margin-start">Likes 51</ion-badge>
-
-    </ion-card-header>
-
-    <ion-card-content>
-      Importante Tratamento da Ansiedade para evitar problemas de Saúde futuros, "e não se esqueça vamos questionar tudo
-      e vote Arthur do Val Mamãe Falei 51 para Prefeito de São Paulo."
-    </ion-card-content>
+    <img class = "imagem-card" src="https://images.pexels.com/photos/97906/pexels-photo-97906.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""> 
+    
+    <ion-card-subtitle class ="ion-padding"> Segundo Dados da OMS o Brasil é o segundo País mais Ansioso sendo 9.3% da População.</ion-card-subtitle>
 
   </ion-card>
 
@@ -109,67 +87,5 @@
     <ion-card-subtitle class = "ion-padding"> Exercicios são recomendados tanto para ter uma boa Saúde quanto para tratamento para Ansiedade, então comece o quanto antes e seja saúdavel.</ion-card-subtitle>
 
   </ion-card>
-
-  <ion-card class = "ion-margin-bottom">
-    <ion-card-header>
-      <ion-grid>
-
-        <ion-row class="ion-align-items-center">
-          <ion-col size="auto">
-            <ion-avatar>
-              <img src="https://randomuser.me/api/portraits/men/61.jpg" alt="foto do usuario João">
-            </ion-avatar>
-            <ion-icon name="add"></ion-icon>
-          </ion-col>
-
-          <ion-col>
-            <ion-card-title> João Paulo Eli </ion-card-title>
-            <ion-card-subtitle> Eletricista </ion-card-subtitle>
-          </ion-col>
-
-        </ion-row>
-      </ion-grid>
-
-      <ion-badge class="ion-margin-start">Likes 568</ion-badge>
-
-    </ion-card-header>
-
-    <ion-card-content>
-      Novo sistema da A-plus, para prevenção de Ansiedade Ótimo, Uso e Recomendo :)
-    </ion-card-content>
-
-  </ion-card>
-
-  <ion-card class = "ion-margin-bottom">
-    <ion-card-header>
-      <ion-grid>
-
-        <ion-row class="ion-align-items-center">
-          <ion-col size="auto">
-            <ion-avatar>
-              <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="foto do usuario Rafaela">
-            </ion-avatar>
-            <ion-icon name="add"></ion-icon>
-          </ion-col>
-
-          <ion-col>
-            <ion-card-title> Rafaela Benhami </ion-card-title>
-            <ion-card-subtitle> Estudante </ion-card-subtitle>
-          </ion-col>
-
-        </ion-row>
-      </ion-grid>
-
-      <ion-badge class="ion-margin-start">Likes 152</ion-badge>
-
-    </ion-card-header>
-
-    <ion-card-content>
-      Muito feliz em participar dos eventos de socialização pelo APP, Participem também.
-    </ion-card-content>
-
-  </ion-card>
-
-
 
 </ion-content>
