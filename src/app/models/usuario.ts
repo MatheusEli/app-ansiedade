@@ -4,9 +4,9 @@ import { ListaPosts } from './lista-posts';
 
 export class Usuario extends Model {
     nome: string;
-    numero:string;
-    email:string;
     sexo:string;
+    idade:number;
+    email:string;
     posts:ListaPosts;
-    imagem:string;
+    imagem?:string;
 }

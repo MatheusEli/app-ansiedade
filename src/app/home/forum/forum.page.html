@@ -6,11 +6,11 @@
     </strong>
   </h1>
 
-  <form>
+  <form [formGroup] = "form">
     <ion-item class = "ion-margin-top ion-align-items-center">
       <ion-icon name="chatbox-outline" slot="start"></ion-icon>
-      <ion-textarea placeholder="Compartilhe sua história!" name = "conteudo"></ion-textarea>
-      <ion-button type="submit" block><ion-icon name="arrow-forward"></ion-icon></ion-button>
+      <ion-textarea placeholder="Compartilhe sua história!" formControlName="conteudo"></ion-textarea>
+      <ion-button (click) = "postar()" block><ion-icon name="arrow-forward"></ion-icon></ion-button>
     </ion-item>
   </form>
 
