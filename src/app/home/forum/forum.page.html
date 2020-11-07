@@ -2,7 +2,7 @@
 <ion-content class="ion-padding">
   <h1>
     <strong>
-      Olá usuário...
+      Olá {{emailUser}}
     </strong>
   </h1>
 
@@ -43,7 +43,7 @@
 
           <ion-col>
             <ion-card-title> {{post.proprietario}}</ion-card-title>
-            <ion-card-subtitle> Especialista em tratamento de Ansiedade </ion-card-subtitle>
+            <ion-card-subtitle> {{post.proprietario_profissao}} </ion-card-subtitle>
           </ion-col>
 
         </ion-row>

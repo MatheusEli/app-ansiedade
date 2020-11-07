@@ -35,6 +35,7 @@ export class CadastroPage implements OnInit {
     this.form = this.fb.group({
       id: new FormControl(),
       nome: new FormControl('', Validators.required),
+      profissao: new FormControl('', Validators.required),
       sexo: new FormControl('', Validators.required),
       idade: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),

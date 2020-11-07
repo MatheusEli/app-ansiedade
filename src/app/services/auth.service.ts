@@ -8,13 +8,19 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  authState: any;
+  authState: any = null;
   private user: Observable<firebase.User>;
   
   constructor(private afu: AngularFireAuth, private router: Router) { 
     this.afu.authState.subscribe((auth =>{
       this.authState = auth;
-    }))
+    }));
+
+    this.afu.onAuthStateChanged((user) => {
+      if (user) {
+        this.router.navigate(['/home']);
+      }
+    });
   }
 
   authUser(): Observable<firebase.User> {

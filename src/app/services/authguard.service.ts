@@ -9,9 +9,9 @@ import { map, catchError, take, tap } from 'rxjs/operators';
 })
 export class AuthguardService implements CanActivate {
 
-  constructor(private afAuth: AngularFireAuth, private router: Router) { }
+  constructor(private afAuth: AngularFireAuth, private router: Router){ }
 
-  canActivate(route:	ActivatedRouteSnapshot,	state:	RouterStateSnapshot){
+  canActivate(route:	ActivatedRouteSnapshot,	state:	RouterStateSnapshot) : Observable<boolean>{
 
     return this.afAuth.authState.pipe(
       take(1),
