@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-perfil',
@@ -10,15 +11,37 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class PerfilPage implements OnInit {
 
-  user: Observable<firebase.User>;
+  usuarios$: Observable<Usuario[]>;
+  usuarioLogado:Usuario;
+  nomeUsuario:string = " ";
+  profissaoUsuario:string = " ";
+  sexoUsuario:string = " ";
+  idadeUsuario:number = 0;
+  emailUsuario = " ";
 
-  constructor(private authServ: AuthService, private router: Router) { }
+  constructor(
+  private router: Router,
+  private userService: UsuarioService, 
+  private auth: AuthService) { }
 
   ngOnInit() {
+
+    this.usuarios$ = this.userService.list();
+    this.usuarios$.subscribe(val =>
+      val.map(user => {
+        if (user.email == this.auth.currentUserName) {
+          this.usuarioLogado = user;
+          this.nomeUsuario = this.usuarioLogado.nome;
+          this.profissaoUsuario = this.usuarioLogado.profissao;
+          this.sexoUsuario = this.usuarioLogado.sexo;
+          this.idadeUsuario = this.usuarioLogado.idade;
+          this.emailUsuario = this.usuarioLogado.email;
+        }
+      }));
   }
 
   sair() {
-    this.authServ.singout();
+    this.auth.singout();
   }
 
 }
