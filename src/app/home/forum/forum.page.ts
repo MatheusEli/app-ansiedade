@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -22,7 +23,8 @@ export class ForumPage implements OnInit {
   usuarios$: Observable<Usuario[]>;
   form: FormGroup;
   usuarioLogado:Usuario;
-  emailUser:string = " ";
+  nomeUsuario:string = " ";
+  profissaoUsuario:string = " ";
 
   constructor(private userService: UsuarioService, protected firestore: AngularFirestore,
     private postService: PostService, private fb: FormBuilder, private auth: AuthService) {
@@ -34,22 +36,23 @@ export class ForumPage implements OnInit {
     this.configForm();
   }
 
-  configForm() {
+  async configForm() {
 
     this.usuarios$ = this.userService.list();
     this.usuarios$.subscribe(val =>
       val.map(user => {
         if (user.email == this.auth.currentUserName) {
           this.usuarioLogado = user;
-          this.emailUser = this.usuarioLogado.nome;
-          console.log("USUÁRIO: "+this.usuarioLogado.nome+" CONECTADO");
+          this.nomeUsuario = this.usuarioLogado.nome;
+          this.profissaoUsuario = this.usuarioLogado.profissao;
         }
       }));
-     
+    
+      
     this.form = this.fb.group({
       id: new FormControl(),
-      proprietario: this.emailUser,
-      proprietario_profissao: "usuário",
+      proprietario: this.nomeUsuario,
+      proprietario_profissao: this.profissaoUsuario,
       dataPostagem: new Date(),
       conteudo: new FormControl('', Validators.required),
       imagem: "https://topdescontos.com.br/media/users/member-default.jpg"
