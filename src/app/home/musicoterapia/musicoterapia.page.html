@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Musicoterapia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-list>
+    <ion-item *ngFor="let item of result">
+      <ion-label>{{item.artists}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+<!--   <ion-card *ngFor="let item of result">
+    <ion-card-header>
+      <ion-card-title>{{user.artists}}</ion-card-title>
+      <ion-card-subtitle>{{user.artist.name}}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card> -->
+
+<!-- 
+  <ion-button (click)="load()">
+    <ion-icon slot="start" name ="add"></ion-icon>
+    Click me
+  </ion-button> -->
+  <pre>
+    {{ result | json }}
+  </pre>
+</ion-content>

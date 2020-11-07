@@ -5,7 +5,13 @@
 </ion-header>
 
 <ion-content color="secondary">
+
   <div class="cloud-background">
+
+    <div class="ion-text-center logo">
+      <strong>A-care</strong>
+    </div>
+
     <form (ngSubmit)="login()" class="div_login">
       <ion-item class="input_login">
         <ion-label>E-mail:</ion-label>
@@ -15,8 +21,12 @@
         <ion-label>Senha:</ion-label>
         <ion-input type="password" [(ngModel)]="password" name="senha" placeholder="Digite sua senha..."></ion-input>
       </ion-item>
-      <ion-button type="submit" class="div_botao">Entrar</ion-button>
-      <ion-button class="div_botao" routerLink = "/cadastro">Cadastre-se</ion-button>
+      <p>
+        <ion-button type="submit" class="div_botao">Entrar</ion-button>
+      </p>
+      <p>
+        <ion-label color="primary">não possui conta? <ion-button routerLink = "/cadastro">Cadastre-se</ion-button></ion-label>
+      </p>
 
     </form>
     <div class="form-group">
