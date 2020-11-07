@@ -1,9 +1,7 @@
-import { Extractor } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { ListaPosts } from 'src/app/models/lista-posts';
 import { Post } from 'src/app/models/post';
 import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from 'src/app/services/auth.service';
@@ -24,13 +22,12 @@ export class ForumPage implements OnInit {
   usuarios$: Observable<Usuario[]>;
   form: FormGroup;
   usuarioLogado:Usuario;
-  emailUser:string;
+  emailUser:string = " ";
 
   constructor(private userService: UsuarioService, protected firestore: AngularFirestore,
     private postService: PostService, private fb: FormBuilder, private auth: AuthService) {
     this.ref = this.firestore.collection<Post>('posts', ref => ref.orderBy("dataPostagem", "desc").limit(10));
     this.posts$ = this.ref.valueChanges();
-    this.emailUser = this.auth.currentUserName;
   }
 
   ngOnInit() {
@@ -38,6 +35,17 @@ export class ForumPage implements OnInit {
   }
 
   configForm() {
+
+    this.usuarios$ = this.userService.list();
+    this.usuarios$.subscribe(val =>
+      val.map(user => {
+        if (user.email == this.auth.currentUserName) {
+          this.usuarioLogado = user;
+          this.emailUser = this.usuarioLogado.nome;
+          console.log("USUÁRIO: "+this.usuarioLogado.nome+" CONECTADO");
+        }
+      }));
+     
     this.form = this.fb.group({
       id: new FormControl(),
       proprietario: this.emailUser,
@@ -56,13 +64,4 @@ export class ForumPage implements OnInit {
 }
 
 
-/*this.usuarios$ = userService.list();
-    this.usuarios$.subscribe(val =>
-      val.map(user => {
-        if (user.email == this.authServ.currentUserName) {
-          this.usuarioLogado = user;
-          this.configForm();
-          console.log("USUÁRIO: "+this.usuarioLogado.nome+" CONECTADO");
-        }
-      }));
-     */ 
+
