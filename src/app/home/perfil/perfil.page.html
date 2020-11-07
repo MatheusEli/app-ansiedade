@@ -23,11 +23,12 @@
 <div class="user-data">E-mail: {{emailUsuario}}</div>
 <div class="user-data">Idade: {{idadeUsuario}}</div>
 <div class="user-data">Sexo: {{sexoUsuario}}</div>
+
+<div class="user-data ion-text-center">
+  <ion-button class="logout botao-sair" color="vermelho" (click) = "sair()"> Sair da Conta
+    <ion-icon name="log-out-outline"></ion-icon>
+  </ion-button>
+</div>
 </div> 
 
 </ion-content>
-  <ion-item class="ion-padding">
-    <ion-button class="logout" fill="solid" color="vermelho" (click) = "sair()"> Sair da Conta
-      <ion-icon name="log-out-outline"></ion-icon>
-    </ion-button>
-  </ion-item>

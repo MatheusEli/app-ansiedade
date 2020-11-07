@@ -10,13 +10,13 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'pagina-inicial',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
-  {
+  /* {
     path: 'pagina-inicial',
     loadChildren: () => import('./pagina-inicial/pagina-inicial.module').then( m => m.PaginaInicialPageModule)
-  },
+  }, */
   {
     path: 'cadastro',
     loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)

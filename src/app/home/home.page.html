@@ -24,9 +24,7 @@
     <ion-item button routerLink="/home/sobre">
       <ion-label>Sobre o App</ion-label>
     </ion-item>
-    <ion-item>
-      <ion-button (click) = "sair()">Sair <ion-icon name="log-out-outline"></ion-icon></ion-button>
-    </ion-item>
+    <ion-item slot="" (click) = "sair()" class="vermelho">Sair do Aplicativo<ion-icon name="log-out-outline" color="vermelho"></ion-icon></ion-item>
   </ion-content>
 </ion-menu>
 
