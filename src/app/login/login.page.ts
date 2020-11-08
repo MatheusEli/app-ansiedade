@@ -40,17 +40,17 @@ export class LoginPage implements OnInit {
 
   validateForm(email:string, password:string) {
     if (email.length === 0) {
-      this.errorMessage = "please enter email id";
+      this.errorMessage = "Por favor insira seu email";
       return false;
     }
 
     if (password.length === 0) {
-      this.errorMessage = "please enter password";
+      this.errorMessage = "Por favor insira sua senha";
       return false;
     }
 
     if (password.length < 6) {
-      this.errorMessage = "password should be at least 6 char";
+      this.errorMessage = "Sua senha deve ter no mínimo 6 caracteres";
       return false;
     }
 

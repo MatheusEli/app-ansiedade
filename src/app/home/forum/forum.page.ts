@@ -25,6 +25,7 @@ export class ForumPage implements OnInit {
   usuarioLogado: Usuario;
   nomeUsuario: string;
   profissaoUsuario: string;
+  imagemUsuario:string;
 
   constructor(private userService: UsuarioService, protected firestore: AngularFirestore,
     private postService: PostService, private fb: FormBuilder, private auth: AuthService) {
@@ -41,6 +42,7 @@ export class ForumPage implements OnInit {
           this.usuarioLogado = user;
           this.nomeUsuario = this.usuarioLogado.nome;
           this.profissaoUsuario = this.usuarioLogado.profissao;
+          this.imagemUsuario = this.usuarioLogado.imagem;
 
 
           this.configForm();
@@ -56,8 +58,7 @@ export class ForumPage implements OnInit {
       proprietario: this.nomeUsuario,
       proprietario_profissao: this.profissaoUsuario,
       dataPostagem: new Date(),
-      conteudo: new FormControl('', Validators.required),
-      imagem: "https://topdescontos.com.br/media/users/member-default.jpg"
+      conteudo: new FormControl('', Validators.required)
     })
   }
 

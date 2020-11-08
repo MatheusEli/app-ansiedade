@@ -9,5 +9,5 @@ export class Usuario extends Model {
     idade:number;
     email:string;
     posts:ListaPosts;
-    imagem?:string;
+    imagem:string;
 }

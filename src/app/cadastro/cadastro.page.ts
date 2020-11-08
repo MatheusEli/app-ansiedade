@@ -39,7 +39,8 @@ export class CadastroPage implements OnInit {
       sexo: new FormControl('', Validators.required),
       idade: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
-      senha: new FormControl('', Validators.required)
+      senha: new FormControl('', Validators.required),
+      imagem: "https://topdescontos.com.br/media/users/member-default.jpg"
     })
   }
 
@@ -50,11 +51,12 @@ export class CadastroPage implements OnInit {
         this.form.controls['email'].value,
         this.form.controls['senha'].value)
         .then(() => {
-          this.message = "you are register with data on firbase"
+          this.message = "Cadastrado no app com sucesso!"
           this.usuarioService.createOrUpdate(this.form.value);
           this.form.reset();
         }).catch(_error => {
           this.error = _error
+          this.message = "Não foi possível realizar seu cadastro"
           this.router.navigate(['/cadastro'])
         })
     }
@@ -63,17 +65,17 @@ export class CadastroPage implements OnInit {
   validateForm(email: string, password: string) {
 
     if (email.length === 0) {
-      this.errorMessage = "please enter email id";
+      this.errorMessage = "Por favor insira seu email";
       return false;
     }
 
     if (password.length === 0) {
-      this.errorMessage = "please enter password";
+      this.errorMessage = "Por favor insira sua senha";
       return false;
     }
 
     if (password.length < 6) {
-      this.errorMessage = "password should be at least 6 char";
+      this.errorMessage = "Sua senha deve ter no mínimo 6 caracteres";
       return false;
     }
 
