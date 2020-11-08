@@ -11,10 +11,10 @@
     <div class="ion-text-center logo">
       <strong>A-care</strong>
     </div>
-        
-      
 
-    <form [formGroup] = "form" class="div_cadastro">
+
+
+    <form [formGroup]="form" class="div_cadastro">
       <ion-item class="input_cadastro">
         <ion-label>Nome:</ion-label>
         <ion-input type="text" formControlName="nome" placeholder="Digite seu nome..."></ion-input>
@@ -23,11 +23,11 @@
         <ion-label>Profissão:</ion-label>
         <ion-input type="text" formControlName="profissao" placeholder="Digite sua profissão..."></ion-input>
       </ion-item>
-      <ion-item class = "input_cadastro">
+      <ion-item class="input_cadastro">
         <ion-label>Sexo:</ion-label>
-        <ion-select formControlName = "sexo" >
-          <ion-select-option size = "full" value="feminino">Feminino</ion-select-option>
-          <ion-select-option size = "full" value="masculino">Masculino</ion-select-option>
+        <ion-select formControlName="sexo">
+          <ion-select-option size="full" value="feminino">Feminino</ion-select-option>
+          <ion-select-option size="full" value="masculino">Masculino</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item class="input_cadastro">
@@ -40,24 +40,21 @@
       </ion-item>
       <ion-item class="input_cadastro">
         <ion-label>Senha:</ion-label>
-        <ion-input type = "password" formControlName="senha" placeholder="Digite sua senha..."></ion-input>
+        <ion-input type="password" formControlName="senha" placeholder="Digite sua senha..."></ion-input>
       </ion-item>
       <ion-button (click)="register()" class="div_botao">Cadastrar-se</ion-button>
-      <p>
-        <ion-label color="primary">já possui conta? </ion-label>
-        <ion-button routerLink = "/login">Login</ion-button>
-      </p>
+      <ion-button class="div_botao" routerLink="/login">Login</ion-button>
     </form>
 
-    <ion-text color = "dark">
-      <p *ngIf="errorMessage.length > 0">
-          {{errorMessage}}</p>
-      
-      <p *ngIf="error.message.length > 0">
-          {{error.message}} </p>
+    <div>
+      <p class="form-group" *ngIf="errorMessage.length > 0">
+        {{errorMessage}}</p>
 
-          <p *ngIf="message.length > 0">
-              {{message}} </p>
-    </ion-text>
+      <p class="form-group" *ngIf="error.message.length > 0">
+        {{error.message}} </p>
+
+      <p class="form-group" *ngIf="message.length > 0">
+        {{message}} </p>
+    </div>
   </div>
 </ion-content>

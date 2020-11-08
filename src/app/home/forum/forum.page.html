@@ -6,7 +6,7 @@
     </strong>
   </h1>
 
-  <form [formGroup] = "form">
+  <form *ngIf = "usuarioLogado != null" [formGroup] = "form">
     <ion-item class = "ion-margin-top ion-align-items-center">
       <ion-icon name="chatbox-outline" slot="start"></ion-icon>
       <ion-textarea placeholder="Compartilhe sua história!" formControlName="conteudo"></ion-textarea>
@@ -50,7 +50,7 @@
       </ion-grid>
 
       <ion-badge> Novo! </ion-badge>
-      <ion-badge class="ion-margin-start">Likes 95</ion-badge>
+      <!--<ion-badge class="ion-margin-start">Likes 95</ion-badge>-->
 
     </ion-card-header>
 

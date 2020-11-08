@@ -21,22 +21,18 @@
         <ion-label>Senha:</ion-label>
         <ion-input type="password" [(ngModel)]="password" name="senha" placeholder="Digite sua senha..."></ion-input>
       </ion-item>
-      <p>
-        <ion-button type="submit" class="div_botao">Entrar</ion-button>
-      </p>
-      <p>
-        <ion-label color="primary">não possui conta? <ion-button routerLink = "/cadastro">Cadastre-se</ion-button></ion-label>
-      </p>
+      <ion-button type="submit" class="div_botao">Entrar</ion-button>
+      <ion-button class="div_botao" routerLink="/cadastro">Cadastre-se</ion-button>
 
     </form>
-    <div class="form-group">
-      <p *ngIf="errorMessage.length > 0" class="text-danger">
-          {{errorMessage}}</p>
-  
-      <p *ngIf="error.message.length > 0" class="text-danger">
-          {{error.message}} </p>
-  
-     
-  </div>
+    <div>
+      <p *ngIf="errorMessage.length > 0" class="form-group">
+        {{errorMessage}}</p>
+
+      <p *ngIf="error.message.length > 0" class="form-group">
+        {{error.message}} </p>
+
+
+    </div>
   </div>
 </ion-content>

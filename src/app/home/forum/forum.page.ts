@@ -22,33 +22,35 @@ export class ForumPage implements OnInit {
   posts$: Observable<Post[]>;
   usuarios$: Observable<Usuario[]>;
   form: FormGroup;
-  usuarioLogado:Usuario;
-  nomeUsuario:string = " ";
-  profissaoUsuario:string = " ";
+  usuarioLogado: Usuario;
+  nomeUsuario: string;
+  profissaoUsuario: string;
 
   constructor(private userService: UsuarioService, protected firestore: AngularFirestore,
     private postService: PostService, private fb: FormBuilder, private auth: AuthService) {
     this.ref = this.firestore.collection<Post>('posts', ref => ref.orderBy("dataPostagem", "desc").limit(10));
     this.posts$ = this.ref.valueChanges();
+    this.usuarios$ = this.userService.list();
   }
 
   ngOnInit() {
-    this.configForm();
-  }
 
-  async configForm() {
-
-    this.usuarios$ = this.userService.list();
     this.usuarios$.subscribe(val =>
       val.map(user => {
         if (user.email == this.auth.currentUserName) {
           this.usuarioLogado = user;
           this.nomeUsuario = this.usuarioLogado.nome;
           this.profissaoUsuario = this.usuarioLogado.profissao;
+
+
+          this.configForm();
         }
       }));
-    
-      
+
+  }
+
+  configForm() {
+
     this.form = this.fb.group({
       id: new FormControl(),
       proprietario: this.nomeUsuario,
@@ -60,7 +62,7 @@ export class ForumPage implements OnInit {
   }
 
   postar() {
-    
+
     this.postService.createOrUpdate(this.form.value);
   }
 
