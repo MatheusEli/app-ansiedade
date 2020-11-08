@@ -67,6 +67,7 @@ export class ForumPage implements OnInit {
   postar() {
 
     this.postService.createOrUpdate(this.form.value);
+    this.form.reset();
   }
 
 }
