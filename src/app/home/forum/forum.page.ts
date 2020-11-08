@@ -8,6 +8,7 @@ import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { PostService } from 'src/app/services/post.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { Url } from 'url';
 
 @Component({
   selector: 'app-forum',
@@ -25,7 +26,7 @@ export class ForumPage implements OnInit {
   usuarioLogado: Usuario;
   nomeUsuario: string;
   profissaoUsuario: string;
-  imagemUsuario:string;
+  imagemUsuario:Url;
 
   constructor(private userService: UsuarioService, protected firestore: AngularFirestore,
     private postService: PostService, private fb: FormBuilder, private auth: AuthService) {
@@ -42,7 +43,7 @@ export class ForumPage implements OnInit {
           this.usuarioLogado = user;
           this.nomeUsuario = this.usuarioLogado.nome;
           this.profissaoUsuario = this.usuarioLogado.profissao;
-          this.imagemUsuario = this.usuarioLogado.imagem;
+          this.imagemUsuario = this.usuarioLogado.foto;
 
 
           this.configForm();
@@ -57,6 +58,7 @@ export class ForumPage implements OnInit {
       id: new FormControl(),
       proprietario: this.nomeUsuario,
       proprietario_profissao: this.profissaoUsuario,
+      proprietario_imagem: this.imagemUsuario,
       dataPostagem: new Date(),
       conteudo: new FormControl('', Validators.required)
     })

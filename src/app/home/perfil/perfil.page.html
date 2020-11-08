@@ -6,29 +6,23 @@
 
 <ion-content>
 
-  <div id="top-div">  
+  <div id="top-div">
     <ion-avatar id="perfil-avatar">
-      <img src="https://topdescontos.com.br/media/users/member-default.jpg">
+      <img [src]="imagemUsuario	||	'../../assets/no-image.jpg'">
     </ion-avatar>
+  </div>
 
-    <ion-fab color="primary" vertical="top" horizontal="center" slot="fixed">
-      <ion-fab-button>
-        <ion-icon name="pencil-outline"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>   
-</div>
+  <div id="bottom-div">
+    <div class="user-data">Nome de Usuário: {{nomeUsuario}}</div>
+    <div class="user-data">E-mail: {{emailUsuario}}</div>
+    <div class="user-data">Idade: {{idadeUsuario}}</div>
+    <div class="user-data">Sexo: {{sexoUsuario}}</div>
 
-<div id="bottom-div">
-<div class="user-data">Nome de Usuário: {{nomeUsuario}}</div>
-<div class="user-data">E-mail: {{emailUsuario}}</div>
-<div class="user-data">Idade: {{idadeUsuario}}</div>
-<div class="user-data">Sexo: {{sexoUsuario}}</div>
-
-<div class="user-data ion-text-center">
-  <ion-button class="logout botao-sair" color="vermelho" (click) = "sair()"> Sair da Conta
-    <ion-icon name="log-out-outline"></ion-icon>
-  </ion-button>
-</div>
-</div> 
+    <div class="user-data ion-text-center">
+      <ion-button class="logout botao-sair" color="vermelho" (click)="sair()"> Sair da Conta
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
 
 </ion-content>

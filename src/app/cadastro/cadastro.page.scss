@@ -1,3 +1,6 @@
+.container-total{
+  background-color: lightblue;
+}
 .cloud-background{
 
     height: 100%;
@@ -11,7 +14,7 @@
 .div_cadastro{
     width:70%;
     margin: auto;
-    margin-top: 25%;
+    margin-top: 12%;
   }
   
   .input_cadastro{
@@ -43,4 +46,10 @@
     padding: 1em;
     border-radius: 25px;
     transition: .3s;
+  }
+
+  .input_file{
+
+    margin-left: .2em;
+    width: 40%;
   }

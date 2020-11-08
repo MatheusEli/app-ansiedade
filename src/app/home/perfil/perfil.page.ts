@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { Url } from 'url';
 
 @Component({
   selector: 'app-perfil',
@@ -19,6 +20,7 @@ export class PerfilPage implements OnInit {
   sexoUsuario:string = " ";
   idadeUsuario:number = 0;
   emailUsuario = " ";
+  imagemUsuario:Url;
 
   constructor(
   private router: Router,
@@ -37,6 +39,7 @@ export class PerfilPage implements OnInit {
           this.sexoUsuario = this.usuarioLogado.sexo;
           this.idadeUsuario = this.usuarioLogado.idade;
           this.emailUsuario = this.usuarioLogado.email;
+          this.imagemUsuario = this.usuarioLogado.foto;
         }
       }));
   }

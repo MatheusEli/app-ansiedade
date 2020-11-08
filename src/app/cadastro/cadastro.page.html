@@ -4,15 +4,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="secondary">
+<ion-content class="container-total" color="secondary">
 
   <div class="cloud-background">
 
     <div class="ion-text-center logo">
       <strong>A-care</strong>
     </div>
-
-
 
     <form [formGroup]="form" class="div_cadastro">
       <ion-item class="input_cadastro">
@@ -41,6 +39,13 @@
       <ion-item class="input_cadastro">
         <ion-label>Senha:</ion-label>
         <ion-input type="password" formControlName="senha" placeholder="Digite sua senha..."></ion-input>
+      </ion-item>
+      <ion-item class="input_cadastro">
+        <label for="foto">Foto:</label>
+        <input class = "input_file" type="file" #inputFile class="form-control" (change)="upload($event)"/>
+      </ion-item>
+      <ion-item class="input_cadastro">
+        <progress style="width:	100%;" max="100" [value]="(uploadPercent |	async)"></progress>
       </ion-item>
       <ion-button (click)="register()" class="div_botao">Cadastrar-se</ion-button>
       <ion-button class="div_botao" routerLink="/login">Login</ion-button>
