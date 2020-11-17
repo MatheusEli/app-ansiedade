@@ -24,8 +24,20 @@ const routes: Routes = [
         path: 'perfil',
         loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
       },
+      {
+        path: 'listmusic',
+        loadChildren: () => import('./listmusic/listmusic.module').then( m => m.ListmusicPageModule)
+      },
+      {
+        path: 'detalhes-musicas',
+        loadChildren: () => import('./detalhes-musicas/detalhes-musicas.module').then( m => m.DetalhesMusicasPageModule)
+      },
     ]
   },
+
+
+  
+
 
 
 
