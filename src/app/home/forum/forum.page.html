@@ -6,6 +6,10 @@
     </strong>
   </h1>
 
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <form *ngIf = "usuarioLogado != null" [formGroup] = "form">
     <ion-item class = "ion-margin-top ion-align-items-center">
       <ion-icon name="chatbox-outline" slot="start"></ion-icon>
@@ -50,6 +54,7 @@
       </ion-grid>
 
       <ion-badge> Novo! </ion-badge>
+      <ion-label>{{post.dataPostagem | date:'yyyy-MM-dd'}}</ion-label>
       <!--<ion-badge class="ion-margin-start">Likes 95</ion-badge>-->
 
     </ion-card-header>

@@ -8,6 +8,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 3em;
+    height: 120%;
 }
 
 .div_cadastro{
@@ -51,4 +52,11 @@
 
     margin-left: .2em;
     width: 40%;
+  }
+  .div_text{
+    margin: 0 auto;
+    display: block;
+    width: 130px;
+    margin-top: 12px;
+    color: #3880ff;
   }

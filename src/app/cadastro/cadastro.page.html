@@ -47,7 +47,10 @@
       <ion-item class="input_cadastro">
         <progress style="width:	100%;" max="100" [value]="(uploadPercent |	async)"></progress>
       </ion-item>
+      <br>
       <ion-button (click)="register()" class="div_botao">Cadastrar-se</ion-button>
+      <br>
+      <ion-label class="div_text">Já possui conta?</ion-label>
       <ion-button class="div_botao" routerLink="/login">Login</ion-button>
     </form>
 

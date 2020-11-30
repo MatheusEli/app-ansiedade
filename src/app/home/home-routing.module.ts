@@ -32,8 +32,14 @@ const routes: Routes = [
         path: 'detalhes-musicas',
         loadChildren: () => import('./detalhes-musicas/detalhes-musicas.module').then( m => m.DetalhesMusicasPageModule)
       },
+      {
+        path: 'treino-resp',
+        loadChildren: () => import('./treino-resp/treino-resp.module').then( m => m.TreinoRespPageModule)
+      }
     ]
   },
+
+
 
 
   
