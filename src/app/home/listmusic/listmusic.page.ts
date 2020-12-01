@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchArtistsResult } from './../types/SearchArtistsResult';
+import { SearchArtistsResult } from './../types/searchArtistsResult';
 import { MusicService } from './../../services/music.service';
 
 
