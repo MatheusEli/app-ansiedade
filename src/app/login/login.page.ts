@@ -30,7 +30,7 @@ export class LoginPage implements OnInit {
     if (this.validateForm(this.email, this.password)) {
       this.authservice.loginWithEmail(this.email, this.password)
         .then(() => {
-         this.router.navigate(['/home/forum'])
+         this.router.navigate(['/home'])
         }).catch(_error => {
           this.error = _error
           this.router.navigate(['/login'])
