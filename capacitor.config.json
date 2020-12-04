@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "app-ansiedade",
+  "appId": "br.com.anhembi.acare",
+  "appName": "A-Care",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
