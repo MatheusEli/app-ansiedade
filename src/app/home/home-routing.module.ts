@@ -37,7 +37,11 @@ const routes: Routes = [
         loadChildren: () => import('./treino-resp/treino-resp.module').then( m => m.TreinoRespPageModule)
       }
     ]
+  },  {
+    path: 'dicas',
+    loadChildren: () => import('./dicas/dicas.module').then( m => m.DicasPageModule)
   },
+
 
 
 
