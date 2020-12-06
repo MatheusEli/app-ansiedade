@@ -35,9 +35,14 @@ const routes: Routes = [
       {
         path: 'treino-resp',
         loadChildren: () => import('./treino-resp/treino-resp.module').then( m => m.TreinoRespPageModule)
+      },
+      {
+        path: 'ajudamedica',
+        loadChildren: () => import('./ajudamedica/ajudamedica.module').then( m => m.AjudamedicaPageModule)
       }
     ]
-  },  {
+  },
+  {
     path: 'dicas',
     loadChildren: () => import('./dicas/dicas.module').then( m => m.DicasPageModule)
   },

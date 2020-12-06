@@ -6,9 +6,6 @@
     </strong>
   </h1>
 
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
 
   <form *ngIf = "usuarioLogado != null" [formGroup] = "form">
     <ion-item class = "ion-margin-top ion-align-items-center">
