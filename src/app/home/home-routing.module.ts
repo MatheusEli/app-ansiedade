@@ -41,6 +41,10 @@ const routes: Routes = [
     path: 'dicas',
     loadChildren: () => import('./dicas/dicas.module').then( m => m.DicasPageModule)
   },
+  {
+    path: 'ajudamedica',
+    loadChildren: () => import('./ajudamedica/ajudamedica.module').then( m => m.AjudamedicaPageModule)
+  },
 
 
 
