@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">A-Care</string>
+    <string name="title_activity_main">A-Care</string>
+    <string name="package_name">br.com.anhembi.acare</string>
+    <string name="custom_url_scheme">br.com.anhembi.acare</string>
+</resources>
