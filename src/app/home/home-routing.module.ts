@@ -22,36 +22,28 @@ const routes: Routes = [
       },
       {
         path: 'perfil',
-        loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
-      },
-      {
-        path: 'listmusic',
-        loadChildren: () => import('./listmusic/listmusic.module').then( m => m.ListmusicPageModule)
-      },
-      {
-        path: 'detalhes-musicas',
-        loadChildren: () => import('./detalhes-musicas/detalhes-musicas.module').then( m => m.DetalhesMusicasPageModule)
+        loadChildren: () => import('./perfil/perfil.module').then(m => m.PerfilPageModule)
       },
       {
         path: 'treino-resp',
-        loadChildren: () => import('./treino-resp/treino-resp.module').then( m => m.TreinoRespPageModule)
+        loadChildren: () => import('./treino-resp/treino-resp.module').then(m => m.TreinoRespPageModule)
       },
       {
         path: 'ajudamedica',
-        loadChildren: () => import('./ajudamedica/ajudamedica.module').then( m => m.AjudamedicaPageModule)
+        loadChildren: () => import('./ajudamedica/ajudamedica.module').then(m => m.AjudamedicaPageModule)
+      },
+      {
+        path: 'dicas',
+        loadChildren: () => import('./dicas/dicas.module').then(m => m.DicasPageModule)
       }
     ]
-  },
-  {
-    path: 'dicas',
-    loadChildren: () => import('./dicas/dicas.module').then( m => m.DicasPageModule)
-  },
+  }
 
 
 
 
 
-  
+
 
 
 
