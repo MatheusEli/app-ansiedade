@@ -1,0 +1,14 @@
+{
+  "appId": "br.com.anhembi.acare",
+  "appName": "A-Care",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 4000,
+      "launchAutoHide": true
+    }
+  },
+  "cordova": {}
+}
