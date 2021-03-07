@@ -40,6 +40,10 @@ const routes: Routes = [
   },  {
     path: 'teleatendimento',
     loadChildren: () => import('./teleatendimento/teleatendimento.module').then( m => m.TeleatendimentoPageModule)
+  },
+  {
+    path: 'agendar-consulta',
+    loadChildren: () => import('./agendar-consulta/agendar-consulta.module').then( m => m.AgendarConsultaPageModule)
   }
 
 
